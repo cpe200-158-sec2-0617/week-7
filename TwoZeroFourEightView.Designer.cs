@@ -48,6 +48,7 @@
             this.btnUp = new System.Windows.Forms.Button();
             this.btnRight = new System.Windows.Forms.Button();
             this.btnDown = new System.Windows.Forms.Button();
+            this.lblscore = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl00
@@ -266,11 +267,23 @@
             this.btnDown.UseVisualStyleBackColor = true;
             this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             // 
-            // Form1
+            // lblscore
+            // 
+            this.lblscore.AutoSize = true;
+            this.lblscore.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblscore.Location = new System.Drawing.Point(19, 268);
+            this.lblscore.Name = "lblscore";
+            this.lblscore.Size = new System.Drawing.Size(115, 31);
+            this.lblscore.TabIndex = 20;
+            this.lblscore.Text = "Score : ";
+            this.lblscore.Click += new System.EventHandler(this.lblscore_Click);
+            // 
+            // TwoZeroFourEightView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(344, 428);
+            this.Controls.Add(this.lblscore);
             this.Controls.Add(this.btnDown);
             this.Controls.Add(this.btnRight);
             this.Controls.Add(this.btnUp);
@@ -291,9 +304,11 @@
             this.Controls.Add(this.lbl02);
             this.Controls.Add(this.lbl01);
             this.Controls.Add(this.lbl00);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "TwoZeroFourEightView";
+            this.Text = "2048";
+            this.Load += new System.EventHandler(this.TwoZeroFourEightView_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -319,6 +334,7 @@
         private System.Windows.Forms.Button btnUp;
         private System.Windows.Forms.Button btnRight;
         private System.Windows.Forms.Button btnDown;
+        private System.Windows.Forms.Label lblscore;
     }
 }
 

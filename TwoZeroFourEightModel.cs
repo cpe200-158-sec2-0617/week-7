@@ -11,6 +11,12 @@ namespace twozerofoureight
         protected int boardSize; // default is 4
         protected int[,] board;
         protected Random rand;
+        public int score
+        {
+            get;
+            set;
+        }
+        protected bool end;
 
         public TwoZeroFourEightModel() : this(4)
         {
@@ -46,6 +52,7 @@ namespace twozerofoureight
                 if (board[x, y] == 0)
                 {
                     board[x, y] = 2;
+                    score += 2;
                     break;
                 }
             }
@@ -259,6 +266,27 @@ namespace twozerofoureight
             }
             board = Random(board);
             NotifyAll();
+        }
+        public void EndingScan()
+        {
+            if (!end)
+            {
+                for (int i = 0; i != boardSize; i++)
+                    if (board[i, 0] != board[i, 1] && board[i, 1] != board[i, 2] && board[i, 2] != board[i, 3])   
+                    {
+                        if (board[0, i] != board[1, i] && board[1, i] != board[2, i] && board[2, i] != board[3, i])
+                        {
+                            if (i == boardSize - 1 && board[i, 0] != board[i, 1] && board[i, 1] != board[i, 2] && board[i, 2] != board[i, 3] && board[0, i] != board[1, i] && board[1, i] != board[2, i] && board[2, i] != board[3, i])
+                            {
+                                end = true;               
+                                break;
+                            }
+                            else continue;
+                        }
+                        else break;
+                    }
+                    else break;
+            }
         }
     }
 }
